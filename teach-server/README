@@ -15,7 +15,16 @@ Build jar
 mvn spring-boot:build-image
 
 
-insert into user_type ( name) values( 'ROLE_ADMIN');
-insert into user_type ( name) values( 'ROLE_USER');
-insert into person (per_num, per_name,per_type) values( 'admin','admin','0');
-insert into user (user_name, password,person_id,user_type_id) values( 'admin','$2a$10$FV5lm..jdQWmV7hFguxKDeTrGyiWg1u6HYD2QiQc0tRROrNtSQVOy',1,1);
+INSERT INTO `admin`(`id`, `aid`, `name`) VALUES (1, '1919810', '测试管理员1');
+INSERT INTO `member`(`id`, `mid`, `name`) VALUES (1, '114514', '测试成员2');
+INSERT INTO `sys_menu`(`id`, `depth`, `icon`, `name`, `order_in_siblings`, `url`, `parent_id`) VALUES (1, 1, '', '用户资料', 100, 'MemberProfile', 1);
+INSERT INTO `sys_menu`(`id`, `depth`, `icon`, `name`, `order_in_siblings`, `url`, `parent_id`) VALUES (2, 1, NULL, '修改密码', 102, 'ChangePassword', 2);
+INSERT INTO `sys_menu`(`id`, `depth`, `icon`, `name`, `order_in_siblings`, `url`, `parent_id`) VALUES (3, 1, NULL, '管理员资料', 101, 'AdminProfile', 3);
+INSERT INTO `type_menu`(`id`, `sys_menu_id`, `user_type_id`) VALUES (1, 1, 1);
+INSERT INTO `type_menu`(`id`, `sys_menu_id`, `user_type_id`) VALUES (2, 2, 1);
+INSERT INTO `type_menu`(`id`, `sys_menu_id`, `user_type_id`) VALUES (3, 2, 2);
+INSERT INTO `type_menu`(`id`, `sys_menu_id`, `user_type_id`) VALUES (4, 3, 2);
+INSERT INTO `user`(`user_id`, `last_login_time`, `login_count`, `password`, `username`, `admin_id`, `member_id`, `user_type_id`) VALUES (1, '2023-06-28 19:44:15.585000', 1, '$2a$10$M4IyU4/K17WCCuY0i/3qdu0a2LRmrCrm7oGJfDu/CgB.IXgLLNkfe', 'Test_member1', NULL, 1, 1);
+INSERT INTO `user`(`user_id`, `last_login_time`, `login_count`, `password`, `username`, `admin_id`, `member_id`, `user_type_id`) VALUES (2, '2023-06-28 19:48:41.668000', 1, '$2a$10$aXqDWP5AUGOgJqAIuYlQdOrZs4kJdO0JRDxBn64yGOjXK6yCyajCm', 'Test_admin1', 1, NULL, 2);
+INSERT INTO `user_type`(`id`, `name`) VALUES (1, 'ROLE_MEMBER');
+INSERT INTO `user_type`(`id`, `name`) VALUES (2, 'ROLE_ADMIN');
