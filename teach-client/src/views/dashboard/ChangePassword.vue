@@ -1,4 +1,4 @@
-<template xmlns="">
+<template>
   <Navi/>
 
   <div  class="form-div">
@@ -55,8 +55,7 @@ import {changePassword} from '@/service/genServ.js'
 import Navi from '@/components/Navi'
 export default {
   name: 'ChangePassword',
-  components: {Navi
-  },
+  components: {Navi},
   data() {
     return {
       passw: 'password',

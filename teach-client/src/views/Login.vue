@@ -29,8 +29,9 @@
 
 
 <script>
+import router from "@/router";
 export default {
-  name: 'Login',
+  name: 'LoginPage',
    data () {
         return {
             username: '',
@@ -48,7 +49,7 @@ export default {
         }
     },
     reg(){
-      this.$router.push('/Register');
+      router.push('/Register');
     }
   }
 }

@@ -20,7 +20,7 @@ import router from '@/router/index.js'
 import { mapState } from 'vuex'
 
 export default {
-  name: 'Sample',
+  name: 'DashSample',
   components: {
       Navi
   },

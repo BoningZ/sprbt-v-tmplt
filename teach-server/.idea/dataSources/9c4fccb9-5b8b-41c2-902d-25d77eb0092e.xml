@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="gobang@bj-cdb-koq9r5sw.sql.tencentcdb.com">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.31">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.43">
     <root id="1">
       <DefaultCasing>exact</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -912,26 +912,26 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Charset>utf8mb4</Charset>
     </collation>
     <schema id="274" parent="1" name="__cdb_recycle_bin__">
-      <Collation>utf8mb4_0900_ai_ci</Collation>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="275" parent="1" name="acmlab">
-      <Collation>utf8_bin</Collation>
+      <CollationName>utf8_bin</CollationName>
     </schema>
     <schema id="276" parent="1" name="gobang">
-      <Collation>utf8_bin</Collation>
       <Current>1</Current>
+      <CollationName>utf8_bin</CollationName>
     </schema>
     <schema id="277" parent="1" name="information_schema">
-      <Collation>utf8_general_ci</Collation>
+      <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="278" parent="1" name="mysql">
-      <Collation>utf8mb4_0900_ai_ci</Collation>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="279" parent="1" name="performance_schema">
-      <Collation>utf8mb4_0900_ai_ci</Collation>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="280" parent="1" name="sys">
-      <Collation>utf8mb4_0900_ai_ci</Collation>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="281" parent="1" name="mysql.infoschema">
       <Host>localhost</Host>
@@ -951,10 +951,10 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <table id="287" parent="276" name="user"/>
     <table id="288" parent="276" name="user_type"/>
     <column id="289" parent="285" name="student_id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="290" parent="285" name="name">
       <DataType>varchar(20)|0s</DataType>
@@ -970,19 +970,18 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Unique>1</Unique>
     </index>
     <key id="293" parent="285" name="PRIMARY">
-      <ColNames>student_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>student_id</UnderlyingIndexColNames>
     </key>
     <key id="294" parent="285" name="UKo9tne8vk9sji3uwth17iwgaql">
-      <ColNames>sid</ColNames>
       <UnderlyingIndexName>UKo9tne8vk9sji3uwth17iwgaql</UnderlyingIndexName>
     </key>
     <column id="295" parent="286" name="teacher_id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="296" parent="286" name="name">
       <DataType>varchar(50)|0s</DataType>
@@ -993,15 +992,15 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>3</Position>
     </column>
     <key id="298" parent="286" name="PRIMARY">
-      <ColNames>teacher_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>teacher_id</UnderlyingIndexColNames>
     </key>
     <column id="299" parent="287" name="user_id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="300" parent="287" name="last_login_time">
       <DataType>datetime(6)|0s</DataType>
@@ -1066,36 +1065,33 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Type>btree</Type>
     </index>
     <key id="314" parent="287" name="PRIMARY">
-      <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>user_id</UnderlyingIndexColNames>
     </key>
     <key id="315" parent="287" name="UK4bakctviobmdk6ddh2nwg08c2">
-      <ColNames>user_name</ColNames>
       <UnderlyingIndexName>UK4bakctviobmdk6ddh2nwg08c2</UnderlyingIndexName>
     </key>
     <key id="316" parent="287" name="UK5m7f6sv2emosxheqxkcadascf">
-      <ColNames>student_id</ColNames>
       <UnderlyingIndexName>UK5m7f6sv2emosxheqxkcadascf</UnderlyingIndexName>
     </key>
     <key id="317" parent="287" name="UKcmubifvnahuydie5hkyft79fp">
-      <ColNames>teacher_id</ColNames>
       <UnderlyingIndexName>UKcmubifvnahuydie5hkyft79fp</UnderlyingIndexName>
     </key>
     <column id="318" parent="288" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="319" parent="288" name="name">
       <DataType>varchar(20)|0s</DataType>
       <Position>2</Position>
     </column>
     <key id="320" parent="288" name="PRIMARY">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>id</UnderlyingIndexColNames>
     </key>
   </database-model>
 </dataSource>

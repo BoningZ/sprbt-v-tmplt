@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '@/views/Login'
+import AdminProfile from "@/views/dashboard/AdminProfile";
 
 const routes = [
   {
@@ -42,6 +43,16 @@ const routes = [
     path:'/Register',
     name:'Register',
     component:() => import('@/views/Register.vue')
+  },
+  {
+    path:'/AdminProfile',
+    name:'AdminProfile',
+    component:AdminProfile
+  },
+  {
+    path:'/MemberProfile',
+    name:'MemberProfile',
+    component:() => import('@/views/dashboard/MemberProfile.vue')
   },
 ]
 

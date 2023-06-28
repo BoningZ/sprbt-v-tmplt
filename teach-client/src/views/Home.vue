@@ -1,4 +1,4 @@
-import 
+import
 <template>
   <Navi/>
   <div class="home">
@@ -12,7 +12,7 @@ import Navi from '@/components/Navi'
 import router from '@/router/index.js'
 
 export default {
-  name: 'Home',
+  name: 'HomePage',
   components:{ Navi},
   methods:{
     logout() {

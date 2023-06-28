@@ -2,7 +2,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   devServer: {
     hot: true,
-    disableHostCheck: true,
+    allowedHosts: "all",
     https: false,
     proxy: {
       '^/api':

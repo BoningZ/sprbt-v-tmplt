@@ -27,21 +27,21 @@
       </div>
       <div style="margin-top: 20px" id="register">
         <el-radio-group v-model="role" size="mini" >
-          <el-radio label="ROLE_USER" border>我是学生</el-radio>
-          <el-radio label="ROLE_ADMIN" border>我是教师</el-radio>
+          <el-radio label="ROLE_MEMBER" border>我是成员</el-radio>
+          <el-radio label="ROLE_ADMIN" border>我是管理员</el-radio>
         </el-radio-group>
       </div>
 
-      <div class="form-group"  v-show="(role==='ROLE_USER')">
+      <div class="form-group"  v-show="(role==='ROLE_MEMBER')">
         <h2></h2>
-        <el-label for="username">学号</el-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <el-input style="width: 75%" clearable v-model="sid"  name="sid" placeholder="请输入学号"></el-input>
+        <el-label for="username">成员号</el-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <el-input style="width: 75%" clearable v-model="mid"  name="mid" placeholder="请输入成员号"></el-input>
       </div>
 
       <div class="form-group"  v-show="(role==='ROLE_ADMIN')">
         <h2></h2>
-        <el-label for="username">工号</el-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <el-input style="width: 75%" clearable v-model="tid"  name="tid" placeholder="请输入工号"></el-input>
+        <el-label for="username">管理员号</el-label>&nbsp;
+        <el-input style="width: 75%" clearable v-model="aid"  name="aid" placeholder="请输入管理员号"></el-input>
       </div>
 
       <div class="form-group"  v-show="(role==='ROLE_ADMIN')">
@@ -62,18 +62,19 @@
 
 <script>
 import {register} from '@/service/genServ.js'
+import router from "@/router";
 
 export default {
-  name: "Register",
+  name: "RegisterPage",
   data(){
     return{
       username:'',
       password:'',
       password2:'',
-      sid:'',
+      mid:'',
       name:'',
-      tid:'',
-      role:'ROLE_USER',
+      aid:'',
+      role:'ROLE_MEMBER',
       check:'',
     }
   },
@@ -84,21 +85,21 @@ export default {
           message:  '口令不一致！',
           type: 'warning',
         })
-      }if((this.role==='ROLE_USER'&&(!this.name||!this.sid||!this.username||!this.password))||
-          (this.role==='ROLE_ADMIN'&&(!this.name||!this.tid||!this.username||!this.password||!this.check))){
+      }if((this.role==='ROLE_MEMBER'&&(!this.name||!this.mid||!this.username||!this.password))||
+          (this.role==='ROLE_ADMIN'&&(!this.name||!this.aid||!this.username||!this.password||!this.check))){
         this.$message({
           message:  '所有项目均为必填项！',
           type: 'warning',
         })
       }
         else{
-        register({'username':this.username,'password':this.password,'role':this.role,'sid':this.sid,'tid':this.tid,'name':this.name,'check':this.check}).then(response=>{
+        register({'username':this.username,'password':this.password,'role':this.role,'mid':this.mid,'aid':this.aid,'name':this.name,'check':this.check}).then(response=>{
           if (response.code === '0') {
             this.$message({
               message:  '成功，跳转到登录页面',
               type: 'success',
             })
-            this.$router.go(-1)
+            router.go(-1)
           } else {
             this.$message({
               message: response.msg,
@@ -122,7 +123,7 @@ export default {
   position: fixed;
 }
 body{
-  margin: 0px;
+  margin: 0;
 }
 .login-container {
   border-radius: 30px;
@@ -135,7 +136,7 @@ body{
   box-shadow: 0 0 25px #cac6c6;
 }
 .login_title {
-  margin: 0px auto 40px auto;
+  margin: 0 auto 40px auto;
   text-align: center;
   color: #505458;
 }
